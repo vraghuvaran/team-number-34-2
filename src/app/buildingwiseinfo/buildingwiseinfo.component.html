@@ -1,0 +1,617 @@
+<div class="wrapper d-flex align-items-stretch">
+
+    <app-sidebar></app-sidebar>
+
+    <div id="content" class="p-4 p-md-5 pt-5">
+        <app-navbar></app-navbar>
+        <br><br>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card" style="border-radius: 15px; font-weight: 100;">
+                            <div class="card-header card-header-primary" style="border-radius: 5px;">
+                                <h4 class="card-title text-white">Floor Wise Info</h4>
+                                <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <input type="number" class="" name="floor" id="cfloor" placeholder="Floor No."
+                                            [(ngModel)]="floor" [ngModelOptions]="{standalone: true}" >
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button [disabled]="floor==0" style="background-color: cadetblue; color: white;" (click)="submitfloor()">Click</button>
+                                    </div>
+                                </div >
+                                <hr>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th style="color: #9c27b0;">
+                                                Floor NO.
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Total Rooms
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Filled Rooms
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Partially filled Rooms
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                filled rooms count
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Partially filled rooms count
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Empty rooms
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Empty rooms count
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Filled/Not Filled
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Students Info
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    Dakota Rice
+                                                </td>
+                                                <td>
+
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="10">10</option>
+                                                        <option value="50">5000</option>
+                                                    </select>
+
+                                                </td>
+                                                <td>
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="10">10</option>
+                                                        <option value="50">5000</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="10">10</option>
+                                                        <option value="50">5000</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td class="text-success">
+                                                    not filled
+
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-raised btn-sm btn-info">click</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    Dakota Rice
+                                                </td>
+                                                <td>
+
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="10">10</option>
+                                                        <option value="50">5000</option>
+                                                    </select>
+
+                                                </td>
+                                                <td>
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="10">10</option>
+                                                        <option value="50">5000</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="10">10</option>
+                                                        <option value="50">5000</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td class="text-success">
+                                                    not filled
+
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-raised btn-sm btn-info">click</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    3
+                                                </td>
+                                                <td>
+                                                    Dakota Rice
+                                                </td>
+                                                <td>
+
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="10">10</option>
+                                                        <option value="50">5000</option>
+                                                    </select>
+
+                                                </td>
+                                                <td>
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="10">10</option>
+                                                        <option value="50">5000</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="10">10</option>
+                                                        <option value="50">5000</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td class="text-success">
+                                                    not filled
+
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-raised btn-sm btn-info"  (click)="studentdetails()">click</button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+                                    <hr>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="">
+                                            <label for="floornumber" class="bmd-label-floating">Show Entries:&nbsp;
+                                            </label>
+                                            <select class="" id="floornumber" name="floor" style="min-width: 50px;">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100000000</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <nav aria-label="...">
+                                            <ul class="pagination">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item active">
+                                                    <a class="page-link" href="#">2 <span
+                                                            class="sr-only">(current)</span></a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card" style="border-radius: 15px; font-weight: 100;">
+                            <div class="card-header card-header-primary" style="border-radius: 5px;">
+                                <h4 class="card-title text-white">Room Wise Info</h4>
+                                <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <input type="number" name="floor" id="crfloor" placeholder="Floor No."
+                                            [(ngModel)]="crfloor" [ngModelOptions]="{standalone: true}" >
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="number" name="room" id="crroom" placeholder="Room No."
+                                        [(ngModel)]="crroom" [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button [disabled]="floor==0" style="background-color: cadetblue; color: white;" (click)="submitrooms()">Click</button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th style="color: #9c27b0;">
+                                                Floor NO.
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Room NO.
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Capacity
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Filled Beds
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Empty Beds
+                                            </th>
+
+                                            <th style="color: #9c27b0;">
+                                                Filled/Not Filled
+                                            </th>
+                                            <th style="color: #9c27b0;">
+                                                Students Info
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+
+                                                    1
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+
+                                                <td class="text-success">
+                                                    not filled
+
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-raised btn-sm btn-info">click</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+
+                                                    2
+
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td class="text-success">
+                                                    not filled
+
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-raised btn-sm btn-info">click</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+
+                                                    2
+                                                </td>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+
+                                                <td class="text-success">
+                                                    not filled
+
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-raised btn-sm btn-info" (click)="studentdetails()">click</button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+                                    <hr>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="">
+                                            <label for="floornumber" class="bmd-label-floating">Show Entries:&nbsp;
+                                            </label>
+                                            <select class="" id="floornumber" name="floor" style="min-width: 50px;">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100000000</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <nav aria-label="...">
+                                            <ul class="pagination">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item active">
+                                                    <a class="page-link" href="#">2 <span
+                                                            class="sr-only">(current)</span></a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button type="button" id="modalpop" hidden="true" class="btn btn-primary" data-toggle="modal"
+    data-target="#modalPoll-1">Launch
+    modal</button>
+
+<!-- Modal: modalPoll -->
+<div class="modal fade" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-full-height  modal-dialog-centered modal-notify modal-info" role="document">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header" style="background-color: #FF3547; height: 60px;">
+                <p class="heading lead" style="color: white;">Hostel Management
+                </p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <label for="inputEmail4" class="bmd-label-floating">Enter the Name of the Block</label>
+                <input class="form-control" type="text" [(ngModel)]="block_name" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <a type="button" style=" color: white;" class="btn btn-success btn-raised  waves-effect waves-light"
+                    data-dismiss="modal" style="border-radius: 15px;" (click)="submitmodal()">Submit
+                    <i class="fa fa-paper-plane ml-1"></i>
+                </a>&nbsp;
+                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal"
+                    style="border-radius: 15px;">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<button id="detailsmodal" type="button" class="btn btn-danger modify" data-toggle="modal" data-target="#exampleModalPreview">
+    Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade right" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+    <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
+        <div class="modal-content-full-width modal-content " >
+            <div class=" modal-header-full-width   modal-header text-center" style="background-color: #FF3547; height: 60px;">
+                <p class="heading lead" style="color: white;">Hostel Management
+                </p>
+                <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                    <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <!-- <h1 class="section-heading text-center wow fadeIn my-5 pt-3"> Not for money, but for humanity</h1> -->
+                <br><br>    
+                <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card" style="border-radius: 15px; font-weight: 100;">
+                                    <!-- <div class="card-header card-header-primary" style="border-radius: 5px;">
+                                        <h4 class="card-title text-white">Floor Wise Info</h4>
+                                        <p class="card-category"> Here is a subtitle for this table</p>
+                                    </div> -->
+                                    <div class="card-body">
+                                        <h4 class="text-center">Student Details(#Floor1)</h4>
+                                        <hr>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class=" text-primary">
+                                                    <th style="color: #9c27b0;">
+                                                        S.NO
+                                                    </th>
+                                                    <th style="color: #9c27b0;">
+                                                       Name
+                                                    </th>
+                                                    <th style="color: #9c27b0;">
+                                                        Email
+                                                    </th>
+                                                    <th style="color: #9c27b0;">
+                                                        College Name
+                                                    </th>
+                                                    <th style="color: #9c27b0;">
+                                                        Roll No.
+                                                    </th>
+                                                    <th style="color: #9c27b0;">
+                                                        Branch
+                                                    </th>
+                                                    <th style="color: #9c27b0;">
+                                                       Year
+                                                    </th>
+                                                    <th style="color: #9c27b0;">
+                                                        Mobile No.
+                                                    </th>
+                                                    <th style="color: #9c27b0;">
+                                                        Address
+                                                    </th>
+                                                   
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            1
+                                                        </td>
+                                                        <td>
+                                                            Dakota Rice
+                                                        </td>
+                                                        <td>
+        
+                                                           vraghuvaran123@gmail.com
+        
+                                                        </td>
+                                                        <td>
+                                                            CMRCET
+                                                        </td>
+                                                        <td>
+                                                            2
+                                                        </td>
+                                                        <td>
+                                                            1
+                                                        </td>
+                                                        <td>
+                                                           3rd
+                                                        </td>
+                                                        <td>
+                                                            2
+                                                        </td>
+                                                        <td class="text-success">
+                                                            not filled
+        
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                    
+                                                </tbody>
+        
+                                            </table>
+                                            <hr>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+
+            <div class="modal-footer-full-width  modal-footer">
+                <button type="button" class="btn btn-danger btn-md btn-rounded" data-dismiss="modal">Close</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
