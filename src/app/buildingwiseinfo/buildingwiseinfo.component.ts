@@ -79,7 +79,8 @@ export class BuildingwiseinfoComponent implements OnInit {
   studentdetails(){
 
     console.log("heljlkjlkjlkjlkjkljlkj")
-    // document.getElementById('detailsmodal').click();
+    debugger;
+    document.getElementById('detailsmodal').click();
     // $("modify").click(()=>{
 
     // })
