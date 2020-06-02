@@ -32,7 +32,9 @@ export class BlockinfoService {
   }
 
 
-
+  blockchart(block_name: any){
+    return this.http.get(this.url+'/api/charts/block/chart/'+block_name,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+  }
 
   
 

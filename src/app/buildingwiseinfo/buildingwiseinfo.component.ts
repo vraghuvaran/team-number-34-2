@@ -18,7 +18,12 @@ export class BuildingwiseinfoComponent implements OnInit {
   block_name: any
   floor = 0;
   rooms: any
+  flag=0;
 
+
+  empty: any
+  full: any
+  partial: any
   crfloor: any
   roominfloor: any
   bedinroom: any
@@ -51,48 +56,6 @@ export class BuildingwiseinfoComponent implements OnInit {
     // $(document).ready(function() {
     //   $('#example').DataTable();
     // });
-
-    document.getElementById('modalpop').click();
-
-
-
-
-
-    var ctx = document.getElementById('myChart');
-
-
-    var myChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            // '#ff3333',
-            // '#009900',
-            // '#ff6633',
-
-            // 'rgba(75, 192, 192, 0.2)',
-            // 'rgba(153, 102, 255, 0.2)',
-            // 'rgba(255, 159, 64, 0.2)'
-            "#2ecc71",
-            "#3498db",
-            "#95a5a6",
-            "#9b59b6",
-            "#f1c40f",
-            "#e74c3c"
-            // "#34495e"
-          ],
-          borderColor: [
-
-          ],
-          borderWidth: 2,
-        }]
-      },
-      options: {}
-    });
-
 
 
 
@@ -259,6 +222,63 @@ convertpdf(){
     doc.save('data.pdf')
 
   })
+
+}
+
+callchart(){
+    
+
+  this.flag=1;
+  console.log("akfls")
+  this.blockinfo.blockchart(this.block_name).subscribe((d)=>{
+    
+    console.log(this.block_name);
+      this.empty=d['empty']
+      this.partial=d['partial']
+      this.full=d['full']
+
+
+  },(error)=>{
+       
+  })
+
+
+  setTimeout(() => {
+
+  var ctx = document.getElementById('myChart');
+
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow'],
+      datasets: [{
+        label: '# of Votes',
+        data: [this.full, this.partial, this.empty],
+        backgroundColor: [
+          '#ff3333',
+          '#009900',
+          '#ff6633',
+
+          // 'rgba(75, 192, 192, 0.2)',
+          // 'rgba(153, 102, 255, 0.2)',
+          // 'rgba(255, 159, 64, 0.2)'
+          // "#2ecc71",
+          // "#3498db",
+          // "#95a5a6",
+          // "#9b59b6",
+          "#f1c40f",
+          "#e74c3c",
+          "#34495e"
+        ],
+        borderColor: [
+
+        ],
+        borderWidth: 2,
+      }]
+    },
+    options: {}
+  });
+},1000);
 
 }
 
