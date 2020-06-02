@@ -19,12 +19,13 @@
                                 <div class="row">
                                     <div class="col-md-2">
                                         <input type="number" class="" name="floor" id="cfloor" placeholder="Floor No."
-                                            [(ngModel)]="floor" [ngModelOptions]="{standalone: true}" >
+                                            [(ngModel)]="floor" [ngModelOptions]="{standalone: true}">
                                     </div>
                                     <div class="col-md-1">
-                                        <button [disabled]="floor==0" style="background-color: cadetblue; color: white;" (click)="submitfloor()">Click</button>
+                                        <button [disabled]="floor==0" style="background-color: cadetblue; color: white;"
+                                            (click)="submitfloor()">Click</button>
                                     </div>
-                                </div >
+                                </div>
                                 <hr>
                                 <div class="table-responsive">
                                     <table class="table">
@@ -54,23 +55,24 @@
                                                 Students Info
                                             </th>
                                         </thead>
-                                        <tbody *ngFor ="let x of floorwiseinfo">
+                                        <tbody *ngFor="let x of floorwiseinfo">
                                             <tr>
                                                 <td>
                                                     {{x.floorno}}
                                                 </td>
                                                 <td>
 
-                                                    <select id="floornumber"  name="floor" style="min-width: 40px;">
-                                                        <option value="1" *ngFor ="let m of x.fullroomD">{{m}}</option>
-                                                      
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1" *ngFor="let m of x.fullroomD">{{m}}</option>
+
                                                     </select>
 
                                                 </td>
                                                 <td>
-                                                    <select id="floornumber"  name="floor" style="min-width: 40px;">
-                                                        <option value="1" *ngFor="let p of x.partialyfilledroomD">{{p}}</option>
-                                                        
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
+                                                        <option value="1" *ngFor="let p of x.partialyfilledroomD">{{p}}
+                                                        </option>
+
                                                     </select>
                                                 </td>
                                                 <td>
@@ -80,29 +82,30 @@
                                                     {{x.partialyfilledroom}}
                                                 </td>
                                                 <td>
-                                                    <select id="floornumber"  name="floor" style="min-width: 40px;">
+                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
                                                         <option value="1" *ngFor="let h of x.emptyroomD">{{h}}</option>
-                                                        
+
                                                     </select>
                                                 </td>
                                                 <td>
                                                     {{x.emptyroom}}
                                                 </td>
-                                                <td >
-                                                    <button class="btn btn-raised btn-sm btn-info"  (click)="studentdetails(x.floorno)">click</button>
+                                                <td>
+                                                    <button class="btn btn-raised btn-sm btn-info"
+                                                        (click)="studentdetails(x.floorno)">click</button>
                                                 </td>
                                                 <!-- <td *ngIf="{{x.partialyfilledroom}}==0 && {{x.emptyroom}}==0">
                                                     <button class="btn btn-raised btn-sm btn-info" [disabled]="true"  (click)="studentdetails(x.floorno)">click</button>
                                                 </td> -->
                                             </tr>
-    
+
                                         </tbody>
 
                                     </table>
                                     <hr>
                                 </div>
 
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-2">
                                         <div class="">
                                             <label for="floornumber" class="bmd-label-floating">Show Entries:&nbsp;
@@ -136,7 +139,7 @@
                                             </ul>
                                         </nav>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
 
@@ -160,13 +163,15 @@
                                 <div class="row">
                                     <div class="col-md-2">
                                         <input type="number" name="floor" id="crfloor" placeholder="Floor No."
-                                            [(ngModel)]="crfloor" [ngModelOptions]="{standalone: true}" >
+                                            [(ngModel)]="crfloor" [ngModelOptions]="{standalone: true}">
                                     </div>
                                     <div class="col-md-1">
 
                                     </div>
                                     <div class="col-md-1">
-                                        <button [disabled]="crfloor==0" style="background-color: cadetblue; color: white;" (click)="submitrooms()">Click</button>
+                                        <button [disabled]="crfloor==0"
+                                            style="background-color: cadetblue; color: white;"
+                                            (click)="submitrooms()">Click</button>
                                     </div>
                                 </div>
                                 <hr>
@@ -189,32 +194,32 @@
                                                 Empty Beds
                                             </th>
 
-                                            <th style="color: #9c27b0;">
+                                            <!-- <th style="color: #9c27b0;">
                                                 Filled/Not Filled
-                                            </th>
+                                            </th> -->
                                             <th style="color: #9c27b0;">
                                                 Students Info
                                             </th>
                                         </thead>
-                                        <!-- <tbody  ng-repeat="(key, value) in room_studentdetails">                
+                                        <tbody *ngFor="let f of room_studentdetails">                
                                             <tr>
                                                 <td>
                                                     {{crfloor}}
                                                 </td>
                                                 <td>
-                                                    {{key}}
+                                                    {{f.room}}
                                                 </td>
                                                 <td>
-                                                   {{bedinroom}}
+                                                   {{f.student}}
                                                 </td>
                                                 <td>
-                                                    {{value}}
+                                                    {{f.student+f.empty}}
                                                 </td>
                                                 <td>
-                                                    {{bedinroom-value}}
+                                                    {{f.empty}}
                                                 </td>
 
-                                                <div *ngIf="bedinroom==value">
+                                                <!-- <div *ngIf="f.==value">
                                                       <td>
                                                           filled
                                                       </td>
@@ -223,20 +228,20 @@
                                                      <td>
                                                          not filled
                                                      </td>
-                                                </div>
+                                                </div> -->
                                                 <td>
                                                     <button class="btn btn-raised btn-sm btn-info" (click)="roomstudentdetails(f.room)">click</button>
                                                 </td>
                                             </tr>
 
-                                        </tbody> -->
+                                        </tbody>
 
                                     </table>
                                     <hr>
                                 </div>
 
 
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-2">
                                         <div class="">
                                             <label for="floornumber" class="bmd-label-floating">Show Entries:&nbsp;
@@ -270,7 +275,7 @@
                                             </ul>
                                         </nav>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
 
@@ -279,14 +284,14 @@
                 </div>
             </div>
         </div>
-       <div class="row">
-        <div class="col-md-6 shadow p-4">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div class="col-md-6 shadow p-4">
-            <canvas id="chart"></canvas>
-        </div>
-    </div>
+        <!-- <div class="row">
+            <div class="col-md-6 shadow p-4">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="col-md-6 shadow p-4">
+                <canvas id="chart"></canvas>
+            </div>
+        </div> -->
 
 
     </div>
@@ -334,14 +339,17 @@
 
 
 
-<button id="detailsmodal" hidden=true type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalPreview">
+<button id="detailsmodal" hidden=true type="button" class="btn btn-danger" data-toggle="modal"
+    data-target="#exampleModalPreview">
     Launch demo modal
 </button>
 <!-- Modal -->
-<div class="modal fade right" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+<div class="modal fade right" id="exampleModalPreview" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
     <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
-        <div class="modal-content-full-width modal-content " >
-            <div class=" modal-header-full-width   modal-header text-center" style="background-color: #FF3547; height: 60px;">
+        <div class="modal-content-full-width modal-content ">
+            <div class=" modal-header-full-width   modal-header text-center"
+                style="background-color: #FF3547; height: 60px;">
                 <p class="heading lead" style="color: white;">Hostel Management
                 </p>
                 <button type="button" class="close " data-dismiss="modal" aria-label="Close">
@@ -351,102 +359,102 @@
             <div class="modal-body">
                 <button class="btn btn-raised btn-md btn-rounded" (click)="convertpdf()">Save as pdf</button>
                 <!-- <h1 class="section-heading text-center wow fadeIn my-5 pt-3"> Not for money, but for humanity</h1> -->
-                <br><br>    
+                <br><br>
                 <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card" style="border-radius: 15px; font-weight: 100;">
-                                    <!-- <div class="card-header card-header-primary" style="border-radius: 5px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card" style="border-radius: 15px; font-weight: 100;">
+                                <!-- <div class="card-header card-header-primary" style="border-radius: 5px;">
                                         <h4 class="card-title text-white">Floor Wise Info</h4>
                                         <p class="card-category"> Here is a subtitle for this table</p>
                                     </div> -->
-                                    <div class="card-body">
-                                        <h4 class="text-center">Student Details(#Floor1)</h4>
+                                <div class="card-body">
+                                    <h4 class="text-center">Student Details</h4>
+                                    <hr>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class=" text-primary">
+                                                <th style="color: #9c27b0;">
+                                                    S.NO
+                                                </th>
+                                                <th style="color: #9c27b0;">
+                                                    Name
+                                                </th>
+                                                <th style="color: #9c27b0;">
+                                                    Email
+                                                </th>
+                                                <th style="color: #9c27b0;">
+                                                    College Name
+                                                </th>
+                                                <th style="color: #9c27b0;">
+                                                    Roll No.
+                                                </th>
+                                                <th style="color: #9c27b0;">
+                                                    Branch
+                                                </th>
+                                                <th style="color: #9c27b0;">
+                                                    Year
+                                                </th>
+                                                <th style="color: #9c27b0;">
+                                                    Mobile No.
+                                                </th>
+                                                <th style="color: #9c27b0;">
+                                                    Address
+                                                </th>
+
+                                            </thead>
+                                            <tbody *ngFor="let h of student_details index as i">
+                                                <tr>
+                                                    <td>
+                                                        {{i+1}}
+                                                    </td>
+                                                    <td>
+                                                        {{h.name}}
+                                                    </td>
+                                                    <td>
+
+                                                        {{h.email}}
+
+                                                    </td>
+                                                    <td>
+                                                        {{h.college}}
+                                                    </td>
+                                                    <td>
+                                                        {{h.rollno}}
+                                                    </td>
+                                                    <td>
+                                                        {{h.branch}}
+                                                    </td>
+                                                    <td>
+                                                        {{h.year}}
+                                                    </td>
+                                                    <td>
+                                                        {{h.phoneNo}}
+                                                    </td>
+                                                    <td class="text-success">
+                                                        {{h.address}}
+
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
                                         <hr>
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class=" text-primary">
-                                                    <th style="color: #9c27b0;">
-                                                        S.NO
-                                                    </th>
-                                                    <th style="color: #9c27b0;">
-                                                       Name
-                                                    </th>
-                                                    <th style="color: #9c27b0;">
-                                                        Email
-                                                    </th>
-                                                    <th style="color: #9c27b0;">
-                                                        College Name
-                                                    </th>
-                                                    <th style="color: #9c27b0;">
-                                                        Roll No.
-                                                    </th>
-                                                    <th style="color: #9c27b0;">
-                                                        Branch
-                                                    </th>
-                                                    <th style="color: #9c27b0;">
-                                                       Year
-                                                    </th>
-                                                    <th style="color: #9c27b0;">
-                                                        Mobile No.
-                                                    </th>
-                                                    <th style="color: #9c27b0;">
-                                                        Address
-                                                    </th>
-                                                   
-                                                </thead>
-                                                <tbody *ngFor="let h of student_details index as i">
-                                                    <tr>
-                                                        <td>
-                                                           {{i+1}}
-                                                        </td>
-                                                        <td>
-                                                           {{h.name}}
-                                                        </td>
-                                                        <td>
-        
-                                                           {{h.email}}
-        
-                                                        </td>
-                                                        <td>
-                                                            {{h.college}}
-                                                        </td>
-                                                        <td>
-                                                            {{h.rollno}}
-                                                        </td>
-                                                        <td>
-                                                            {{h.branch}}
-                                                        </td>
-                                                        <td>
-                                                           {{h.year}}
-                                                        </td>
-                                                        <td>
-                                                            {{h.phoneNo}}
-                                                        </td>
-                                                        <td class="text-success">
-                                                            {{h.address}}
-        
-                                                        </td>
-                                                        
-                                                    </tr>
-                                                    
-                                                </tbody>
-        
-                                            </table>
-                                            <hr>
-                                        </div>
                                     </div>
-        
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                
+                </div>
+
             </div>
 
             <div class="modal-footer-full-width  modal-footer">
                 <button type="button" class="btn btn-danger btn-md btn-rounded" data-dismiss="modal">Close</button>
-                
+
             </div>
         </div>
     </div>

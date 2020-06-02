@@ -13,6 +13,8 @@ import { AddstudentComponent } from './addstudent/addstudent.component';
 import { BuildingwiseinfoComponent } from './buildingwiseinfo/buildingwiseinfo.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { BarchartComponent } from './barchart/barchart.component';
+import { CollegewiseComponent } from './collegewise/collegewise.component';
+import { ReportgenerationComponent } from './reportgeneration/reportgeneration.component';
 
 
 const routes: Routes = [
@@ -29,7 +31,9 @@ const routes: Routes = [
   {path: 'navbar', component: NavbarComponent},
   {path: 'buildingwiseinfo', component: BuildingwiseinfoComponent},
   {path: 'logout',component: LogoutComponent},
-  {path: 'barchart', component: BarchartComponent}
+  {path: 'barchart', component: BarchartComponent},
+  {path: 'collegewise', component: CollegewiseComponent},
+  {path: 'report', component: ReportgenerationComponent}
   // {path: 'spinner', component: SpinnerComponent}
 ];
 

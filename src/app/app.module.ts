@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BarchartComponent } from './barchart/barchart.component';
 import { CollegewiseComponent } from './collegewise/collegewise.component';
+import { ReportgenerationComponent } from './reportgeneration/reportgeneration.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { CollegewiseComponent } from './collegewise/collegewise.component';
     AddstudentComponent,
     RegisterComponent,
     BarchartComponent,
-    CollegewiseComponent
+    CollegewiseComponent,
+    ReportgenerationComponent
   ],
   imports: [
     BrowserModule,

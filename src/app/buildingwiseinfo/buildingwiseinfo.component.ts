@@ -56,7 +56,7 @@ export class BuildingwiseinfoComponent implements OnInit {
 
 
 
-    
+
 
     var ctx = document.getElementById('myChart');
 
@@ -163,11 +163,11 @@ export class BuildingwiseinfoComponent implements OnInit {
     this.blockinfo.roomwiseinfo(this.block_name, this.crfloor).subscribe((d) => {
 
       
-      this.roominfloor=d['roominfloor'];
-      this.bedinroom = d['bedinroom']
+      // this.roominfloor=d['roominfloor'];
+      // this.bedinroom = d['bedinroom']
       
-      delete d['roominfloor'];
-      delete d['bedinroom']
+      // delete d['roominfloor'];
+      // delete d['bedinroom']
 
       this.room_studentdetails = d;
 
@@ -213,11 +213,14 @@ studentdetails(floorno: any){
 
 }
 
-roomstudentdetails(floor: any, room: any){
+roomstudentdetails( room: any){
 
-  this.blockinfo.rooms_studentdetails(this.block_name, floor, room).subscribe((d) => {
+
+  console.log(this.crfloor,room);
+  this.blockinfo.rooms_studentdetails(this.block_name, this.crfloor, room).subscribe((d) => {
 
     this.student_details = d;
+    console.log(d);
 
     document.getElementById('detailsmodal').click();
 

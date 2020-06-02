@@ -50,7 +50,9 @@
                                         <th style="color: #9c27b0;">
                                             Address
                                         </th>
-
+                                        <th style="color: #9c27b0;">
+                                            Due/Paid
+                                        </th>
                                     </thead>
                                     <tbody *ngFor="let h of student_details index as i">
                                         <tr>
@@ -84,11 +86,11 @@
                                                 {{h.address}}
 
                                             </td>
-
+                                            <td>
+                                               paid 
+                                            </td>
                                         </tr>
-
                                     </tbody>
-
                                 </table>
                                 <hr>
                             </div>
@@ -98,11 +100,8 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-
-
 
 
 
@@ -127,19 +126,11 @@
 
             <div class="modal-body">
 
-
-
                 <div class="form-group">
-                    <label for="inputEmail4" class="bmd-label-floating">Enter the Name of the Block</label>
-                    <input class="form-control" type="text" id="bname" [(ngModel)]="block_name"
-                        [ngModelOptions]="{standalone: true}">
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleSelect1" class="bmd-label-floating">Enter the College Name</label>
-                    <select class="form-control" id="exampleSelect1" name="state" [(ngModel)]="cname"
+                    <label for="exampleSelect1" class="bmd-label-floating">Enter the Block Name</label>
+                    <select class="form-control" id="exampleSelect1" name="state" [(ngModel)]="bname"
                         [ngModelOptions]="{standalone: true}" required>
-                        <option *ngFor="let m of collegenames">{{m}}</option>
+                        <option *ngFor="let m of buildings">{{m}}</option>
                     </select>
                 </div>
             </div>
