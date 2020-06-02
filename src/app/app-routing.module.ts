@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddstudentComponent } from './addstudent/addstudent.component';
 import { BuildingwiseinfoComponent } from './buildingwiseinfo/buildingwiseinfo.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { BarchartComponent } from './barchart/barchart.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'addstudent', component: AddstudentComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'buildingwiseinfo', component: BuildingwiseinfoComponent},
-  {path: 'logout',component: LogoutComponent}
+  {path: 'logout',component: LogoutComponent},
+  {path: 'barchart', component: BarchartComponent}
   // {path: 'spinner', component: SpinnerComponent}
 ];
 

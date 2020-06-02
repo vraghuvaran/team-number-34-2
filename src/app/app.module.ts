@@ -21,6 +21,7 @@ import { BuildingwiseinfoComponent } from './buildingwiseinfo/buildingwiseinfo.c
 import { AddstudentComponent } from './addstudent/addstudent.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BarchartComponent } from './barchart/barchart.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     BuildingwiseinfoComponent,
     AddstudentComponent,
-    RegisterComponent
+    RegisterComponent,
+    BarchartComponent
   ],
   imports: [
     BrowserModule,

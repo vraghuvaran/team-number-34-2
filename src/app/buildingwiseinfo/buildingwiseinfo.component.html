@@ -33,9 +33,6 @@
                                                 Floor NO.
                                             </th>
                                             <th style="color: #9c27b0;">
-                                                Total Rooms
-                                            </th>
-                                            <th style="color: #9c27b0;">
                                                 Filled Rooms
                                             </th>
                                             <th style="color: #9c27b0;">
@@ -54,61 +51,42 @@
                                                 Empty rooms count
                                             </th>
                                             <th style="color: #9c27b0;">
-                                                Filled/Not Filled
-                                            </th>
-                                            <th style="color: #9c27b0;">
                                                 Students Info
                                             </th>
                                         </thead>
-                                        <tbody>
+                                        <tbody *ngFor ="let x of floorwiseinfo">
                                             <tr>
                                                 <td>
-                                                    1
-                                                </td>
-                                                <td>
-                                                    Dakota Rice
+                                                    {{x.floorno}}
                                                 </td>
                                                 <td>
 
-                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="4">4</option>
-                                                        <option value="10">10</option>
-                                                        <option value="50">5000</option>
+                                                    <select id="floornumber"  name="floor" style="min-width: 40px;">
+                                                        <option value="1" *ngFor ="let m of x.fullroomD">{{m}}</option>
+                                                      
                                                     </select>
 
                                                 </td>
                                                 <td>
-                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="4">4</option>
-                                                        <option value="10">10</option>
-                                                        <option value="50">5000</option>
+                                                    <select id="floornumber"  name="floor" style="min-width: 40px;">
+                                                        <option value="1" *ngFor="let p of x.partialyfilledroomD">{{p}}</option>
+                                                        
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    2
+                                                    {{x.fullroom}}
                                                 </td>
                                                 <td>
-                                                    1
+                                                    {{x.partialyfilledroom}}
                                                 </td>
                                                 <td>
-                                                    <select id="floornumber" name="floor" style="min-width: 40px;">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="4">4</option>
-                                                        <option value="10">10</option>
-                                                        <option value="50">5000</option>
+                                                    <select id="floornumber"  name="floor" style="min-width: 40px;">
+                                                        <option value="1" *ngFor="let h of x.emptyroomD">{{h}}</option>
+                                                        
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    2
-                                                </td>
-                                                <td class="text-success">
-                                                    not filled
-
+                                                    {{x.emptyroom}}
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-raised btn-sm btn-info" (click)="studentdetails()">click</button>
@@ -348,6 +326,16 @@
                 </div>
             </div>
         </div>
+       <div class="row">
+        <div class="col-md-6 shadow p-4">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="col-md-6 shadow p-4">
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+
+
     </div>
 </div>
 
@@ -393,7 +381,7 @@
 
 
 
-<button id="detailsmodal" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalPreview">
+<button id="detailsmodal" hidden=true type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalPreview">
     Launch demo modal
 </button>
 <!-- Modal -->
@@ -408,7 +396,7 @@
                 </button>
             </div>
             <div class="modal-body">
-
+                <button class="btn btn-raised btn-md btn-rounded" (click)="convertpdf()">Save as pdf</button>
                 <!-- <h1 class="section-heading text-center wow fadeIn my-5 pt-3"> Not for money, but for humanity</h1> -->
                 <br><br>    
                 <div class="container-fluid">

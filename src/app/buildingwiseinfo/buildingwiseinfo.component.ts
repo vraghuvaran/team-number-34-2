@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BlockinfoService } from '../blockinfo.service'
+import * as jspdf from 'jspdf'
+import html2canvas from 'html2canvas'
+import { Chart } from "node_modules/chart.js"
+
 
 declare const $;
 
@@ -15,7 +19,7 @@ export class BuildingwiseinfoComponent implements OnInit {
   crfloor: any
   crroom: any
 
-  floorinfo: any
+  floorwiseinfo: any
   
   constructor(private blockinfo: BlockinfoService) { }
 
@@ -42,31 +46,101 @@ export class BuildingwiseinfoComponent implements OnInit {
       // });
 
       document.getElementById('modalpop').click();
+
+
+
+
+
+
+      var ctx = document.getElementById('myChart');
+
+
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    // '#ff3333',
+                    // '#009900',
+                    // '#ff6633',
+
+                    // 'rgba(75, 192, 192, 0.2)',
+                    // 'rgba(153, 102, 255, 0.2)',
+                    // 'rgba(255, 159, 64, 0.2)'
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6",
+                    "#f1c40f",
+                    "#e74c3c"
+                    // "#34495e"
+                ],
+                borderColor: [
+                    
+                ],
+                borderWidth: 2,
+            }]
+        },
+        options: {}
+    });
+
+
+
+
+
+
+
+    var ct = document.getElementById('chart');
+
+
+    var myChart = new Chart(ct, {
+      type: 'pie',
+      data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                  // '#ff3333',
+                  // '#009900',
+                  // '#ff6633',
+
+                  // 'rgba(75, 192, 192, 0.2)',
+                  // 'rgba(153, 102, 255, 0.2)',
+                  // 'rgba(255, 159, 64, 0.2)'
+                  "#2ecc71",
+                  "#3498db",
+                  "#95a5a6",
+                  "#9b59b6",
+                  "#f1c40f",
+                  "#e74c3c"
+                  // "#34495e"
+              ],
+             
+              borderWidth: 2,
+          }]
+      },
+      options: {}
+  });
+      
+
+
+
   }
 
   submitmodal(){
     
-    // this.blockinfo.sendblock(this.block_name).subscribe((d)=>{   
-   
-                     
-
-    // },(error)=>{
-
-    //       if(error.status==500){
-    //         alert('Internal Server Error')
-    //       }
-
-    // })
-
     this.blockinfo.floorwiseinfo(this.block_name).subscribe((d)=>{
 
            console.log(d);
+           this.floorwiseinfo=d;
 
     },(error)=>{
 
-           if(error.status==500){
-             alert("Internal Server Error");
-           }
+           alert("no student found in that block");
 
     })
 
@@ -100,5 +174,27 @@ export class BuildingwiseinfoComponent implements OnInit {
 
   }
 
+  convertpdf(){
+
+    var element = document.getElementById("exampleModalPreview")
+
+    html2canvas(element).then((canvas)=>{
+
+      //  console.log(canvas);
+
+      var imgdata = canvas.toDataURL('image/png')
+
+      var doc = new jspdf();
+
+
+      var imgheight=canvas.height * 208 /canvas.width;
+
+      doc.addImage(imgdata,0,0,208,imgheight)
+
+      doc.save('data.pdf')
+
+    })
+
+  }
 
 }
