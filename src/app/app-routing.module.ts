@@ -11,6 +11,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddstudentComponent } from './addstudent/addstudent.component';
 import { BuildingwiseinfoComponent } from './buildingwiseinfo/buildingwiseinfo.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'navbar', component: NavbarComponent},
   {path: 'buildingwiseinfo', component: BuildingwiseinfoComponent},
   {path: 'logout',component: LogoutComponent}
+  // {path: 'spinner', component: SpinnerComponent}
 ];
 
 @NgModule({

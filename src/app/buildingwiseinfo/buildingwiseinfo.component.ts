@@ -14,6 +14,8 @@ export class BuildingwiseinfoComponent implements OnInit {
   floor=0;
   crfloor: any
   crroom: any
+
+  floorinfo: any
   
   constructor(private blockinfo: BlockinfoService) { }
 
@@ -40,31 +42,42 @@ export class BuildingwiseinfoComponent implements OnInit {
       // });
 
       document.getElementById('modalpop').click();
-
-
-
-       $("#okok").on("click",()=>{
-              console.log("iam here")
-    })
-    
   }
 
   submitmodal(){
     
-    this.blockinfo.sendblock(this.block_name).subscribe((d)=>{   
+    // this.blockinfo.sendblock(this.block_name).subscribe((d)=>{   
+   
+                     
+
+    // },(error)=>{
+
+    //       if(error.status==500){
+    //         alert('Internal Server Error')
+    //       }
+
+    // })
+
+    this.blockinfo.floorwiseinfo(this.block_name).subscribe((d)=>{
+
+           console.log(d);
 
     },(error)=>{
 
-          if(error.status==500){
-            alert('Internal Server Error')
-          }
+           if(error.status==500){
+             alert("Internal Server Error");
+           }
 
     })
+
+
 
   }
 
   submitfloor(){
-      console.log("hi")
+
+
+
   }
   
   submitrooms(){
@@ -78,13 +91,12 @@ export class BuildingwiseinfoComponent implements OnInit {
 
   studentdetails(){
 
-    console.log("heljlkjlkjlkjlkjkljlkj")
-    debugger;
+    // console.log("heljlkjlkjlkjlkjkljlkj")
+    // debugger;
     document.getElementById('detailsmodal').click();
     // $("modify").click(()=>{
 
     // })
-    
 
   }
 

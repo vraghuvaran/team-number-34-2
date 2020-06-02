@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
     if(localStorage.getItem("auth-token")==null){
       this.router.navigate(['/login']);
     }
-
+    
     var fullHeight = function() {
     
       $('.js-fullheight').css('height', $(window).height());
@@ -38,12 +38,14 @@ export class DashboardComponent implements OnInit {
 
 
     this.allocate.showbuildings().subscribe((d)=>{
-   
+      
+      
       this.showbuildings=d;
-      // console.log(d);
+      console.log(d);
 
   },(error)=>{
     
+
      if(error['status']==500){
        alert('Internal Server Error')
      }
