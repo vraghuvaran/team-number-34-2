@@ -57,7 +57,9 @@ export class BuildingwiseinfoComponent implements OnInit {
     //   $('#example').DataTable();
     // });
 
+    document.getElementById('modalpop').click();
 
+    
 
 
 
