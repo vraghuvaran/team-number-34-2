@@ -18,5 +18,24 @@ export class BlockinfoService {
     return this.http.get(this.url+'/api/room/choose/'+blockName,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
   }
 
+  roomwiseinfo(blockName: any,floor: any){
+      return this.http.get(this.url+'/api/room/choose/floor/'+blockName+'/'+floor,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+  }
+
+
+  floorstudentdetails(blockName: any, floor: any){
+    return this.http.get(this.url+'/api/room/deail/floor/'+blockName+'/'+floor,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+  }
+
+  rooms_studentdetails(blockName: any, floor: any, room :any){
+    return this.http.get(this.url+'/api/room/deail/floor/room/'+blockName+'/'+floor+'/'+room,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+  }
+
+
+
+
+  
+
+
 
 }

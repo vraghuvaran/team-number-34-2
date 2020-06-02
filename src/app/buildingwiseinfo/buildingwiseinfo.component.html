@@ -88,12 +88,14 @@
                                                 <td>
                                                     {{x.emptyroom}}
                                                 </td>
-                                                <td>
-                                                    <button class="btn btn-raised btn-sm btn-info" (click)="studentdetails()">click</button>
+                                                <td >
+                                                    <button class="btn btn-raised btn-sm btn-info"  (click)="studentdetails(x.floorno)">click</button>
                                                 </td>
+                                                <!-- <td *ngIf="{{x.partialyfilledroom}}==0 && {{x.emptyroom}}==0">
+                                                    <button class="btn btn-raised btn-sm btn-info" [disabled]="true"  (click)="studentdetails(x.floorno)">click</button>
+                                                </td> -->
                                             </tr>
-                                            
-
+    
                                         </tbody>
 
                                     </table>
@@ -160,12 +162,11 @@
                                         <input type="number" name="floor" id="crfloor" placeholder="Floor No."
                                             [(ngModel)]="crfloor" [ngModelOptions]="{standalone: true}" >
                                     </div>
-                                    <div class="col-md-2">
-                                        <input type="number" name="room" id="crroom" placeholder="Room No."
-                                        [(ngModel)]="crroom" [ngModelOptions]="{standalone: true}">
+                                    <div class="col-md-1">
+
                                     </div>
                                     <div class="col-md-1">
-                                        <button [disabled]="floor==0" style="background-color: cadetblue; color: white;" (click)="submitrooms()">Click</button>
+                                        <button [disabled]="crfloor==0" style="background-color: cadetblue; color: white;" (click)="submitrooms()">Click</button>
                                     </div>
                                 </div>
                                 <hr>
@@ -195,88 +196,40 @@
                                                 Students Info
                                             </th>
                                         </thead>
-                                        <tbody>
+                                        <!-- <tbody  ng-repeat="(key, value) in room_studentdetails">                
                                             <tr>
                                                 <td>
-                                                    1
+                                                    {{crfloor}}
                                                 </td>
                                                 <td>
-                                                    1
+                                                    {{key}}
                                                 </td>
                                                 <td>
-
-                                                    1
+                                                   {{bedinroom}}
                                                 </td>
                                                 <td>
-                                                    2
+                                                    {{value}}
                                                 </td>
                                                 <td>
-                                                    2
-                                                </td>
-
-                                                <td class="text-success">
-                                                    not filled
-
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-raised btn-sm btn-info">click</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    2
-                                                </td>
-                                                <td>
-                                                    1
-                                                </td>
-                                                <td>
-
-                                                    2
-
-                                                </td>
-                                                <td>
-                                                    2
+                                                    {{bedinroom-value}}
                                                 </td>
 
+                                                <div *ngIf="bedinroom==value">
+                                                      <td>
+                                                          filled
+                                                      </td>
+                                                </div>
+                                                <div *ngIf="bedinroom!=value">
+                                                     <td>
+                                                         not filled
+                                                     </td>
+                                                </div>
                                                 <td>
-                                                    2
-                                                </td>
-                                                <td class="text-success">
-                                                    not filled
-
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-raised btn-sm btn-info">click</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    2
-                                                </td>
-                                                <td>
-                                                    2
-                                                </td>
-                                                <td>
-
-                                                    2
-                                                </td>
-                                                <td>
-                                                    1
-                                                </td>
-                                                <td>
-                                                    2
-                                                </td>
-
-                                                <td class="text-success">
-                                                    not filled
-
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-raised btn-sm btn-info" (click)="studentdetails()">click</button>
+                                                    <button class="btn btn-raised btn-sm btn-info" (click)="roomstudentdetails(f.room)">click</button>
                                                 </td>
                                             </tr>
 
-                                        </tbody>
+                                        </tbody> -->
 
                                     </table>
                                     <hr>
@@ -442,36 +395,36 @@
                                                     </th>
                                                    
                                                 </thead>
-                                                <tbody>
+                                                <tbody *ngFor="let h of student_details index as i">
                                                     <tr>
                                                         <td>
-                                                            1
+                                                           {{i+1}}
                                                         </td>
                                                         <td>
-                                                            Dakota Rice
+                                                           {{h.name}}
                                                         </td>
                                                         <td>
         
-                                                           vraghuvaran123@gmail.com
+                                                           {{h.email}}
         
                                                         </td>
                                                         <td>
-                                                            CMRCET
+                                                            {{h.college}}
                                                         </td>
                                                         <td>
-                                                            2
+                                                            {{h.rollno}}
                                                         </td>
                                                         <td>
-                                                            1
+                                                            {{h.branch}}
                                                         </td>
                                                         <td>
-                                                           3rd
+                                                           {{h.year}}
                                                         </td>
                                                         <td>
-                                                            2
+                                                            {{h.phoneNo}}
                                                         </td>
                                                         <td class="text-success">
-                                                            not filled
+                                                            {{h.address}}
         
                                                         </td>
                                                         

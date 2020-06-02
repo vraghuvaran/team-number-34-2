@@ -1,0 +1,35 @@
+<button type="button" id="modalpop" hidden="true" class="btn btn-primary" data-toggle="modal"
+    data-target="#modalPoll-1">Launch
+    modal</button>
+
+<!-- Modal: modalPoll -->
+<div class="modal fade" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-full-height  modal-dialog-centered modal-notify modal-info" role="document">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header" style="background-color: #FF3547; height: 60px;">
+                <p class="heading lead" style="color: white;">Hostel Management
+                </p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <label for="inputEmail4" class="bmd-label-floating">Enter the Name of the Block</label>
+                <input class="form-control" type="text" [(ngModel)]="block_name" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="modal-footer justify-content-center">
+                <a type="button" style=" color: white;" class="btn btn-success btn-raised  waves-effect waves-light"
+                    data-dismiss="modal" style="border-radius: 15px;" (click)="submitmodal()">Submit
+                    <i class="fa fa-paper-plane ml-1"></i>
+                </a>&nbsp;
+                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal"
+                    style="border-radius: 15px;">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>

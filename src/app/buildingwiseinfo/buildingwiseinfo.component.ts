@@ -3,6 +3,7 @@ import { BlockinfoService } from '../blockinfo.service'
 import * as jspdf from 'jspdf'
 import html2canvas from 'html2canvas'
 import { Chart } from "node_modules/chart.js"
+import { AllocationService } from '../allocation.service';
 
 
 declare const $;
@@ -15,13 +16,19 @@ declare const $;
 export class BuildingwiseinfoComponent implements OnInit {
 
   block_name: any
-  floor=0;
+  floor = 0;
+  rooms: any
+
   crfloor: any
+  roominfloor: any
+  bedinroom: any
   crroom: any
 
   floorwiseinfo: any
-  
-  constructor(private blockinfo: BlockinfoService) { }
+  student_details: any
+  room_studentdetails: any
+
+  constructor(private blockinfo: BlockinfoService, private allocate: AllocationService) { }
 
   ngOnInit() {
 
@@ -40,51 +47,50 @@ export class BuildingwiseinfoComponent implements OnInit {
       $('#sidebar').toggleClass('active');
     });
 
-   
-      // $(document).ready(function() {
-      //   $('#example').DataTable();
-      // });
 
-      document.getElementById('modalpop').click();
+    // $(document).ready(function() {
+    //   $('#example').DataTable();
+    // });
 
-
+    document.getElementById('modalpop').click();
 
 
 
+    
 
-      var ctx = document.getElementById('myChart');
+    var ctx = document.getElementById('myChart');
 
 
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    // '#ff3333',
-                    // '#009900',
-                    // '#ff6633',
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            // '#ff3333',
+            // '#009900',
+            // '#ff6633',
 
-                    // 'rgba(75, 192, 192, 0.2)',
-                    // 'rgba(153, 102, 255, 0.2)',
-                    // 'rgba(255, 159, 64, 0.2)'
-                    "#2ecc71",
-                    "#3498db",
-                    "#95a5a6",
-                    "#9b59b6",
-                    "#f1c40f",
-                    "#e74c3c"
-                    // "#34495e"
-                ],
-                borderColor: [
-                    
-                ],
-                borderWidth: 2,
-            }]
-        },
-        options: {}
+            // 'rgba(75, 192, 192, 0.2)',
+            // 'rgba(153, 102, 255, 0.2)',
+            // 'rgba(255, 159, 64, 0.2)'
+            "#2ecc71",
+            "#3498db",
+            "#95a5a6",
+            "#9b59b6",
+            "#f1c40f",
+            "#e74c3c"
+            // "#34495e"
+          ],
+          borderColor: [
+
+          ],
+          borderWidth: 2,
+        }]
+      },
+      options: {}
     });
 
 
@@ -99,102 +105,158 @@ export class BuildingwiseinfoComponent implements OnInit {
     var myChart = new Chart(ct, {
       type: 'pie',
       data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-          datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                  // '#ff3333',
-                  // '#009900',
-                  // '#ff6633',
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            // '#ff3333',
+            // '#009900',
+            // '#ff6633',
 
-                  // 'rgba(75, 192, 192, 0.2)',
-                  // 'rgba(153, 102, 255, 0.2)',
-                  // 'rgba(255, 159, 64, 0.2)'
-                  "#2ecc71",
-                  "#3498db",
-                  "#95a5a6",
-                  "#9b59b6",
-                  "#f1c40f",
-                  "#e74c3c"
-                  // "#34495e"
-              ],
-             
-              borderWidth: 2,
-          }]
+            // 'rgba(75, 192, 192, 0.2)',
+            // 'rgba(153, 102, 255, 0.2)',
+            // 'rgba(255, 159, 64, 0.2)'
+            "#2ecc71",
+            "#3498db",
+            "#95a5a6",
+            "#9b59b6",
+            "#f1c40f",
+            "#e74c3c"
+            // "#34495e"
+          ],
+
+          borderWidth: 2,
+        }]
       },
       options: {}
-  });
-      
+    });
+
 
 
 
   }
 
-  submitmodal(){
-    
-    this.blockinfo.floorwiseinfo(this.block_name).subscribe((d)=>{
+  submitmodal() {
 
-           console.log(d);
-           this.floorwiseinfo=d;
+    this.blockinfo.floorwiseinfo(this.block_name).subscribe((d) => {
 
-    },(error)=>{
+      console.log(d);
+      this.floorwiseinfo = d;
 
-           alert("no student found in that block");
+    }, (error) => {
+
+      alert("no student found in that block");
 
     })
 
+  }
+
+  submitfloor() {
+
 
 
   }
 
-  submitfloor(){
+  submitrooms() {
 
+    this.blockinfo.roomwiseinfo(this.block_name, this.crfloor).subscribe((d) => {
 
-
-  }
-  
-  submitrooms(){
       
-        
+      this.roominfloor=d['roominfloor'];
+      this.bedinroom = d['bedinroom']
+      
+      delete d['roominfloor'];
+      delete d['bedinroom']
+
+      this.room_studentdetails = d;
+
+      console.log(this.room_studentdetails);
+
+  },(error) => {
+
+    if (error.status == 500) {
+      alert("Internal Server Error")
+    }
+    else {
+      alert("No rooms found")
+    }
+
+  })  
 
   }
 
 
+studentdetails(floorno: any){
 
 
-  studentdetails(){
+  console.log(this.block_name, floorno);
+  this.blockinfo.floorstudentdetails(this.block_name, floorno).subscribe((d) => {
 
-    // console.log("heljlkjlkjlkjlkjkljlkj")
-    // debugger;
+    console.log(d);
+    this.student_details = d;
+
     document.getElementById('detailsmodal').click();
-    // $("modify").click(()=>{
-
-    // })
-
-  }
-
-  convertpdf(){
-
-    var element = document.getElementById("exampleModalPreview")
-
-    html2canvas(element).then((canvas)=>{
-
-      //  console.log(canvas);
-
-      var imgdata = canvas.toDataURL('image/png')
-
-      var doc = new jspdf();
 
 
-      var imgheight=canvas.height * 208 /canvas.width;
+  }, (error) => {
 
-      doc.addImage(imgdata,0,0,208,imgheight)
 
-      doc.save('data.pdf')
+    if (error.status == 500) {
+      alert("Internal Server Error")
+    }
+    else {
+      alert("Students not found")
+    }
 
-    })
+  })
 
-  }
+}
+
+roomstudentdetails(floor: any, room: any){
+
+  this.blockinfo.rooms_studentdetails(this.block_name, floor, room).subscribe((d) => {
+
+    this.student_details = d;
+
+    document.getElementById('detailsmodal').click();
+
+  }, (error) => {
+
+    if (error.status == 500) {
+      alert("Internal Server Error")
+    }
+    else {
+      alert("No student found")
+    }
+
+  })
+
+
+}
+
+
+convertpdf(){
+
+  var element = document.getElementById("exampleModalPreview")
+
+  html2canvas(element).then((canvas) => {
+
+    //  console.log(canvas);
+
+    var imgdata = canvas.toDataURL('image/png')
+
+    var doc = new jspdf();
+
+
+    var imgheight = canvas.height * 208 / canvas.width;
+
+    doc.addImage(imgdata, 0, 0, 208, imgheight)
+
+    doc.save('data.pdf')
+
+  })
+
+}
 
 }
