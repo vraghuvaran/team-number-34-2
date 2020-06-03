@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BarchartComponent } from './barchart/barchart.component';
 import { CollegewiseComponent } from './collegewise/collegewise.component';
 import { ReportgenerationComponent } from './reportgeneration/reportgeneration.component';
+import { StudentComponent } from './student/student.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ReportgenerationComponent } from './reportgeneration/reportgeneration.c
     RegisterComponent,
     BarchartComponent,
     CollegewiseComponent,
-    ReportgenerationComponent
+    ReportgenerationComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
