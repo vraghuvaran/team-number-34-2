@@ -5,6 +5,9 @@ import * as jspdf from 'jspdf'
 import html2canvas from 'html2canvas'
 import { ReportService } from '../report.service';
 
+
+declare const $;
+
 @Component({
   selector: 'app-reportgeneration',
   templateUrl: './reportgeneration.component.html',
@@ -23,6 +26,21 @@ export class ReportgenerationComponent implements OnInit {
     if(localStorage.getItem('auth-token')==null){
       this.router.navigate(['/login'])
     }
+
+    var fullHeight = function () {
+
+      $('.js-fullheight').css('height', $(window).height());
+      $(window).resize(function () {
+        $('.js-fullheight').css('height', $(window).height());
+      });
+
+    };
+
+    fullHeight();
+
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('active');
+    });
 
 
     document.getElementById('modalpop').click();

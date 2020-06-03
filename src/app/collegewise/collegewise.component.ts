@@ -26,6 +26,22 @@ export class CollegewiseComponent implements OnInit {
     if(localStorage.getItem('auth-token')==null){
       return;
     }
+
+    var fullHeight = function () {
+
+      $('.js-fullheight').css('height', $(window).height());
+      $(window).resize(function () {
+        $('.js-fullheight').css('height', $(window).height());
+      });
+
+    };
+
+    fullHeight();
+
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('active');
+    });
+    
    document.getElementById("modalpop").click();
 
    $(document).ready(() => {
